@@ -1,0 +1,17 @@
+{
+  "name": "testnet",
+  "version": "1.0.0",
+  "description": "testnet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "testnet"
+  ],
+  "author": "jsn5",
+  "license": "ISC",
+  "dependencies": {
+    "web3": "^1.0.0-beta.13"
+  }
+}

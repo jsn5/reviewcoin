@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/css/foundation.min.css" />
+<script type="text/javascript" src="./node_modules/web3/dist/web3.min.js"></script>
+	<style>
+		.wrapper{
+			width: 50%;
+			margin: 0 auto;
+			background: white;
+			padding: 40px;
+		}
+
+		.radio{
+			display: inline-block;
+			margin-right: 20px;
+		}
+		body{
+			background-image: url("playstation-pattern.png");
+		}
+
+		#address, #balance{
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrapper">
+
+		<div class="row">
+			<div class="small-6 columns">
+				<label for="">
+					Address
+					<input type="text" name="" readonly id="address" value="4b75cc3b0c0b97ed662e627f5c8ffaa8f16a78d9083de93190e587aa65cf95bd">
+				</label>
+			</div>
+			<div class="small-6 columns">
+				<label for="">
+					Balance
+					<input type="text" name="" readonly id="balance" value="100 ETH">
+				</label>
+			</div>
+		</div>
+
+		<form class="form-horizontal" action="/" method="POST" id="survey-form">
+		<fieldset>
+
+		<!-- Form Name -->
+		<b><legend>Chocos Survey Form</legend></b>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Your name</label>  
+		  <div class="col-md-4">
+		  <input id="textinput" name="name" id ="input" type="text" placeholder="Name" class="form-control input-md"> 
+		  </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Email</label>  
+		  <div class="col-md-4">
+		  <input id="textinput" name="email" type="email" placeholder="Email" class="form-control input-md">
+		  </div>
+		</div>
+
+		<!-- Multiple Radios -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="radios">How would you rate our product on a scale on 1 to 5?</label>
+		<div class="col-md-4">
+		  <div class="radio">
+			    <label>
+			      <input type="radio" name="radios0" id="radios-0" value="1" checked="checked">
+			      1
+			    </label>
+			</div>
+		  	<div class="radio">
+			    <label>
+			      <input type="radio" name="radios0" id="radios-1" value="2">
+			      2
+			    </label>
+			</div>
+			<div class="radio">
+			    <label>
+			      <input type="radio" name="radios0" id="radios-2" value="3">
+			      3
+			    </label>
+			</div>
+			<div class="radio">
+			    <label>
+			      <input type="radio" name="radios0" id="radios-3" value="4">
+			      4
+			    </label>
+			</div>
+		  	<div class="radio">
+			    <label>
+			      <input type="radio" name="radios0" id="radios-4" value="5">
+			      5
+			    </label>
+			</div>
+		  </div>
+		</div>
+
+		<!-- Multiple Radios -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Would you like to try our product again?</label>
+		  <div class="col-md-4">
+		  <div class="radio">
+		    <label>
+		      <input type="radio" name="radios1" id="radios-0" value="1" checked="checked">
+		      Yes
+		    </label>
+			</div>
+		  <div class="radio">
+		    <label>
+		      <input type="radio" name="radios1" id="radios-1" value="2">
+		      No
+		    </label>
+			</div>
+		  </div>
+		</div>
+
+		<!-- Multiple Radios (inline) -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">What was the best feature about our product?</label>
+		  <div class="col-md-4"> 
+		    <label class="radio-inline">
+		      <input type="radio" name="radios2" id="radios-0" value="1" checked="checked">
+		      Taste
+		    </label> 
+		    <label class="radio-inline">
+		      <input type="radio" name="radios2" id="radios-1" value="2">
+		      Quality
+		    </label> 
+		    <label class="radio-inline">
+		      <input type="radio" name="radios2" id="radios-2" value="3">
+		      Quantity
+		    </label> 
+		    <label class="radio-inline">
+		      <input type="radio" name="radios2" id="radios-3" value="4">
+		      Price
+		    </label>
+		  </div>
+		</div>
+
+		<!-- Select Basic -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" >Which flavor do you like the most?</label>
+		  <div class="col-md-4">
+		    <select id="selectbasic" name="flavor" class="form-control">
+		      <option value="1">Strawberry</option>
+		      <option value="2">Mango</option>
+		      <option value="3">Chocolate</option>
+		      <option value="4">Butterscotch</option>
+		    </select>
+		  </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Would you like to provide us with any feedback?</label>  
+		  <div class="col-md-4">
+		  <textarea id="" cols="30" rows="5" name="feedback"></textarea>
+		  </div>
+		</div>
+
+		</fieldset>
+
+		<button id="button" class="button button-primary" type="submit">Submit</button>
+
+		</form>
+	</div>
+<pre id="output">
+</pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+
+
+<script type="text/javascript">
+	form = $("#survey-form");
+	var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+	
+	web3.eth.defaultAccount = web3.eth.accounts[1];
+	document.getElementById('balance').value = (web3.eth.getBalance(web3.eth.defaultAccount)*0.00000000000000000001) + " ETH";
+	document.getElementById('address').value = web3.eth.defaultAccount;
+	var surveyContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_email","type":"bytes32"},{"name":"_ratings","type":"int8"},{"name":"_tryagain","type":"int8"},{"name":"_scale","type":"int8"},{"name":"_fav","type":"int8"},{"name":"_feedback","type":"bytes32"}],"name":"setVal","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getVal","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"}]);
+
+	var survey = surveyContract.at('0x4cf28e3b5f352da0e21c7aaa37e21f39d3975a4a');
+	
+	
+	form.submit(function(e){
+		e.preventDefault();
+		var formdata = $(form).serializeArray();
+		var data = {};
+		$(formdata ).each(function(index, obj){
+    		data[obj.name] = obj.value;
+		});
+		console.log(data);
+		survey.setVal(data['name'],data['email'],parseInt(data['radios0']),parseInt(data['radios1']),parseInt(data['radios2']),parseInt(data['flavor']),parseInt(data['feedback']));
+
+		
+		//alert(survey.getVal());
+		url = 'payment.html';
+		window.location = url;
+	});
+
+</script>
+</body>
+</html>

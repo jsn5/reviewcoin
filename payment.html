@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/css/foundation.min.css" />
+	<script type="text/javascript" src="./node_modules/web3/dist/web3.min.js"></script>
+	<style>
+		.wrapper{
+			width: 50%;
+			margin: 0 auto;
+			background: white;
+			padding: 40px;
+		}
+
+		.radio{
+			display: inline-block;
+			margin-right: 20px;
+		}
+		body{
+			background-image: url("playstation-pattern.png");
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrapper">
+		<form class="form-horizontal"  method="POST" id="survey-form">
+		<fieldset>
+
+		<!-- Form Name -->
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label">Enter your wallet address:</label>  
+		  <div class="col-md-4">
+		  <input id="textinput" name="name" id ="input" type="text" placeholder="Wallet address" class="form-control input-md"> 
+		  </div>
+		</div>
+
+		
+		<button id="button" class="button button-primary">Submit</button>
+
+		</form>
+	</div>
+<pre id="output">
+</pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(e){
+		var form = $("#survey-form");
+		form.submit(function(e){
+			alert("proceed to recieve reward");
+		});
+	})
+	
+
+</script>
+</body>
+</html>
